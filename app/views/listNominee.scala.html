@@ -1,0 +1,139 @@
+@(message: String, allUsers: List[User], nominees: List[UserNominee])
+
+@main(message) {
+@*
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registration form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/font-awesome.min.css")" />
+
+    <script src="@routes.Assets.at("javascripts/jquery.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/add-nominee-related.js")"> language="javascript" type="text/javascript"></script>
+ 
+
+</head>
+<body>
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project Nominees</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="/addNominee">Add Nominees</a>
+                    </li>
+                    <li>
+                        <a href="#">List Nominees</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+ <div class="container">
+
+    <div class="page-header">
+        <h2></h2>
+    </div>
+    
+    
+
+    <div class= "col-md-8" id="formBegin">    
+            
+        <div class="bfh-selectbox">
+            <label for="users">Select Users: </label>
+            <select class="form-control" name="userSelect">
+                <option value="default">Default</option>
+                
+                @for(data <- allUsers)  {
+                
+                    <option value = "">@data.getName()</option>
+                
+                }  
+            </select>
+        </div>
+    </div>
+
+<!--  Table to select users as nominees -->
+    <div class= "col-md-12" id="listNomineeTable">
+
+    <div class="page-header">
+        <h2>Nominee List</h2>
+    </div>
+    
+   <table class="table table-bordered" value= "" id="userSelectTable"> 
+    <thead>
+      <tr>
+       <th><strong>Nominee Name</strong></th>
+       <th><strong>Nominee contact number</strong></th>
+       
+      </tr>
+    </thead>
+    
+    <tbody>
+    
+    
+    
+    @if(nominees != null)  {
+   
+      @for(data <- nominees)  {
+          <tr>
+           
+            <td>@data.getNomineeName()</td>
+            <td>@data.getNomineeContactNumber()</td>
+           </tr>
+       
+       } 
+       
+   } 
+       
+     </tbody>
+</table>
+
+
+</div>     
+    
+    
+</div>  
+<script src="@routes.Assets.at("javascripts/jquery.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/list_nominee_related.js")"> language="javascript" type="text/javascript"></script>
+
+
+
+</body>
+
+
+
+
+
+</html> *@
+
+  @*@for(data <- nominees)  { 
+
+      <p><font size="3" color="black">@data.getClass.getMethods</font></p><br>
+      <!-- <p><font size="3" color="grey">@data.getNomineeCloveUserId()</font></p><br>  -->
+  } *@ 
+}

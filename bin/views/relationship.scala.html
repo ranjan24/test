@@ -1,0 +1,144 @@
+@(message: String, allUsers: List[User], userExceptNominee: Map[String, String], nomineeExceptUsers: Map[String, String], relation: List[Int] )
+
+@main(message) {
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registration form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/font-awesome.min.css")" />
+
+    <script src="@routes.Assets.at("javascripts/jquery.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/add-nominee-related.js")"> language="javascript" type="text/javascript"></script>
+ 
+
+</head>
+<body>
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project Nominees</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="/addNominee">Add Nominees</a>
+                    </li>
+                    <li>
+                        <a href="#">List Nominees</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<body>    
+
+<div class="container">
+
+    <div class="page-header">
+        <h2></h2>
+    </div>
+    
+    
+    
+    @helper.form(action = routes.Application.asyncRelationship(), 'id -> "relationshipSubmit") {
+    
+    <div class= "col-md-8" id="formBegin">  
+            
+        <div class="bfh-selectbox">
+            <label for="users">Select Source: </label>
+            <select class="form-control" name="source">
+                <option value="default">Default</option>
+                
+               @for(data <- allUsers)  {
+                
+                    <option value = @data.getId().toString().concat("U") >@data.getName()</option>
+                
+                } 
+            </select>
+        </div>
+        <ol style="visibility:hidden;"></ol>
+        <div class="bfh-selectbox">
+            <label for="users">Select Destination: </label>
+            <select class="form-control" name="destination">
+                <option value="default">Default</option>
+                
+                <optgroup label="Users">
+                @for((key, value) <- userExceptNominee) {
+                
+                    <option value = @key.concat("U") >@value</option>
+                
+                }
+                </optgroup>
+                
+                <optgroup label="Nominees">
+                
+                @for((key, value) <- nomineeExceptUsers) {
+                
+                    <option value = @key.concat("N") >@value</option>
+                
+                }
+                </optgroup>
+            </select>
+        </div>
+        
+        <ol style="visibility:hidden;"></ol>
+        <ol style="visibility:hidden;"></ol>
+        
+        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-left">
+        
+        }  
+        
+    </div>
+    
+    
+</div> <!-- End container -->
+
+<ol style="visibility:hidden;"></ol>
+<ol style="visibility:hidden;"></ol>
+<ol style="visibility:hidden;"></ol>
+<ol style="visibility:hidden;"></ol>
+    
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+        
+        <h2>Shortest path</h2>
+    
+    
+    <h2><font size="3" color="black" class="btn btn-info pull-left">@relation.toString()</font></h2><br>
+        
+        
+        </div>
+    </div>
+    
+
+    <script src="@routes.Assets.at("javascripts/jquery.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"> language="javascript" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/relationship.js")"> language="javascript" type="text/javascript"></script>
+    
+</body>
+
+</html>
+ 
+}
