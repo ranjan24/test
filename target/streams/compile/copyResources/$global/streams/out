@@ -1,7 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/application.conf~,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/application.conf~)[0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/routes,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/evolutions,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/application.conf,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/evolutions/default,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/home/ranjan/playWorkspace/endProduct/conf/evolutions/default/1.sql,/home/ranjan/playWorkspace/endProduct/target/scala-2.11/classes/evolutions/default/1.sql)[0m
